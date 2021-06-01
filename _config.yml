@@ -1,0 +1,14 @@
+timezone: Asia/Tokyo
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      path: ""
+      type: posts
+    values:
+      permalink: /:year/:month/:day/:title/
+      layout: post
+strict_front_matter: true
+paginate: 10

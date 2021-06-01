@@ -1,0 +1,30 @@
+---
+title: Home
+---
+
+<article class="posts">
+  <h1>投稿</h1>
+  {% for post in paginator.posts %}
+  <article class="post">
+    <h2 class="post-title">
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    </h2>
+    <div class="post-info">
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y年%m月%d日" }}</time>
+    </div>
+  </article>
+  {% endfor %}
+</article>
+<!-- Pagination links -->
+<div class="pagination">
+  {% if paginator.previous_page %}
+  <a href="{{ paginator.previous_page_path | relative_url }}">&laquo; Prev</a>
+  {% else %}
+  <span>&laquo; Prev</span>
+  {% endif %}
+  {% if paginator.next_page %}
+  <a href="{{ paginator.next_page_path | relative_url }}">Next &raquo;</a>
+  {% else %}
+  <span>Next &raquo;</span>
+  {% endif %}
+</div>
